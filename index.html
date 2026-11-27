@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti, mi amor 💛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ============================================
+     ✏️ CAMBIA AQUÍ LOS NOMBRES (abajo en el HTML)
+     Busca: [nombre]  y  Angie
+     ============================================ */
+  :root{
+    --rosa:#f7d9e3;
+    --rosa-fuerte:#d97a9b;
+    --dorado:#c9a24a;
+    --crema:#fffaf4;
+    --texto:#5a3e4b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    color:var(--texto);
+    background:linear-gradient(160deg,#fff0f5 0%,#fde8ef 40%,#fff6e9 100%);
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+
+  /* ---------- Corazones flotando ---------- */
+  .flotante{
+    position:fixed;bottom:-40px;pointer-events:none;z-index:0;
+    animation:subir linear forwards;opacity:.75;
+  }
+  @keyframes subir{
+    0%{transform:translateY(0) rotate(0deg);opacity:0}
+    10%{opacity:.8}
+    100%{transform:translateY(-110vh) rotate(25deg);opacity:0}
+  }
+
+  /* ---------- Sobre de entrada ---------- */
+  #intro{
+    position:fixed;inset:0;z-index:10;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:linear-gradient(160deg,#fde3ec,#fff4e6);
+    transition:opacity 1s ease, visibility 1s;
+  }
+  #intro.oculto{opacity:0;visibility:hidden}
+  .sobre{
+    width:280px;height:180px;position:relative;cursor:pointer;
+    background:#f3c6d4;border-radius:6px;
+    box-shadow:0 15px 40px rgba(217,122,155,.35);
+    animation:latir 2s ease-in-out infinite;
+  }
+  .sobre::before{
+    content:"";position:absolute;top:0;left:0;
+    border-left:140px solid transparent;border-right:140px solid transparent;
+    border-top:100px solid #e9a9bd;
+  }
+  .sello{
+    position:absolute;top:72px;left:50%;transform:translateX(-50%);
+    width:56px;height:56px;border-radius:50%;
+    background:var(--rosa-fuerte);color:#fff;font-size:26px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+  }
+  @keyframes latir{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+  .intro-texto{
+    margin-top:30px;font-family:'Great Vibes',cursive;font-size:2.6rem;color:var(--rosa-fuerte);
+    text-align:center;padding:0 20px;
+  }
+  .intro-sub{font-size:1.1rem;margin-top:6px;letter-spacing:2px;opacity:.75}
+
+  /* ---------- Contenido ---------- */
+  main{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:60px 22px 80px}
+  section{
+    background:rgba(255,250,244,.85);
+    backdrop-filter:blur(4px);
+    border-radius:22px;
+    padding:42px 32px;
+    margin-bottom:34px;
+    box-shadow:0 10px 35px rgba(217,122,155,.15);
+    border:1px solid rgba(201,162,74,.25);
+    text-align:center;
+    opacity:0;transform:translateY(30px);
+    transition:all 1s ease;
+  }
+  section.visible{opacity:1;transform:translateY(0)}
+
+  h1{
+    font-family:'Great Vibes',cursive;font-weight:400;
+    font-size:clamp(3rem,9vw,4.6rem);color:var(--rosa-fuerte);line-height:1.1;
+  }
+  h2{
+    font-family:'Great Vibes',cursive;font-weight:400;
+    font-size:clamp(2.2rem,6vw,3rem);color:var(--rosa-fuerte);margin-bottom:16px;
+  }
+  p{font-size:1.3rem;line-height:1.7}
+  .adorno{color:var(--dorado);font-size:1.4rem;letter-spacing:10px;margin:14px 0}
+
+  /* Versículo */
+  .versiculo{
+    font-style:italic;font-size:1.55rem;line-height:1.6;
+    position:relative;padding:10px 10px 0;
+  }
+  .versiculo::before{
+    content:"“";font-family:Georgia,serif;font-size:5rem;color:var(--dorado);
+    position:absolute;top:-38px;left:-6px;opacity:.5;
+  }
+  .cita{margin-top:14px;font-weight:600;color:var(--dorado);letter-spacing:1px;font-size:1.1rem}
+  .nota-version{font-size:.85rem;opacity:.6;margin-top:4px}
+
+  /* Promesa de boda */
+  .boda{background:linear-gradient(150deg,rgba(255,240,245,.95),rgba(255,246,230,.95))}
+  .anillos{font-size:3.4rem;animation:brillar 2.5s ease-in-out infinite}
+  @keyframes brillar{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+  .anio{
+    font-family:'Cormorant Garamond',serif;font-weight:600;
+    font-size:clamp(3.5rem,12vw,5.5rem);color:var(--dorado);letter-spacing:6px;line-height:1;
+    margin:10px 0;
+  }
+  .dios{font-style:italic;font-size:1.35rem;margin-bottom:10px}
+
+  /* Razones */
+  .razones{list-style:none;margin-top:10px}
+  .razones li{
+    font-size:1.25rem;padding:10px 0;border-bottom:1px dashed rgba(201,162,74,.35);
+  }
+  .razones li:last-child{border-bottom:none}
+
+  footer{
+    position:relative;z-index:1;text-align:center;padding-bottom:50px;
+  }
+  .firma{font-family:'Great Vibes',cursive;font-size:2.6rem;color:var(--rosa-fuerte)}
+
+  @media (max-width:480px){
+    section{padding:34px 20px}
+    p{font-size:1.15rem}
+    .versiculo{font-size:1.3rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= SOBRE DE ENTRADA ================= -->
+<div id="intro">
+  <div class="sobre" id="sobre"><div class="sello">💛</div></div>
+  <div class="intro-texto">Para Angelito </div>
+  <div class="intro-sub">toca el sobre para abrir</div>
+</div>
+
+<!-- ================= CONTENIDO ================= -->
+<main>
+
+  <section>
+    <h1>Para ti, [nombre]</h1>
+    <div class="adorno">✦ ✦ ✦</div>
+    <p>
+      Hice este pequeño rincón solo para ti, para darte las gracias
+      por amarme tanto. Tu amor se nota en los detalles, en tu paciencia,
+      en cómo me cuidas y en cómo me haces sentir segura.
+      Doy gracias a Dios todos los días por ponerte en mi camino.
+    </p>
+  </section>
+
+  <section>
+    <h2>Palabra para nosotros</h2>
+    <p class="versiculo">
+      Y si alguno prevaleciere contra el uno, dos estarán contra él;
+      y cordón de tres dobleces no presto se rompe.
+    </p>
+    <div class="cita">Eclesiastés 4:12</div>
+    <div class="nota-version">Reina-Valera 1909</div>
+    <div class="adorno">✦</div>
+    <p>
+      Tú, yo y Dios en el centro: ese es nuestro cordón de tres hilos.
+      Mientras Él nos sostenga, nada podrá rompernos.
+    </p>
+  </section>
+
+  <section class="boda">
+    <div class="anillos">💍</div>
+    <h2>Lo que viene</h2>
+    <p class="dios">Si Dios lo permite, el próximo año…</p>
+    <div class="anio">2027</div>
+    <p><strong>seré tu esposa</strong></p>
+    <div class="adorno">✦ ✦ ✦</div>
+    <p>
+      Cuento los días para decirte "sí" delante de Dios.
+      Gracias por elegirme y por querer construir una vida conmigo.
+      Lo que Él empezó en nosotros, Él lo va a terminar.
+    </p>
+  </section>
+
+  <section>
+    <h2>Gracias, mi amor</h2>
+    <ul class="razones">
+      <li>💛 Por amarme tanto, incluso en mis días difíciles</li>
+      <li>💛 Por tu paciencia conmigo</li>
+      <li>💛 Por cuidarme y abrazarme como solo tú sabes</li>
+      <li>💛 Por orar conmigo y soñar conmigo</li>
+      <li>💛 Por ser el hombre que Dios preparó para mí</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="versiculo" style="font-size:1.35rem">
+      Las muchas aguas no podrán apagar el amor, ni lo ahogarán los ríos.
+    </p>
+    <div class="cita">Cantares 8:7</div>
+    <div class="nota-version">Reina-Valera 1909</div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Con todo mi amor, hoy y siempre,</p>
+  <div class="firma">Angie</div>
+</footer>
+
+<script>
+  // Abrir el sobre
+  const intro = document.getElementById('intro');
+  function abrir(){
+    intro.classList.add('oculto');
+    mostrarSecciones();
+  }
+  document.getElementById('sobre').addEventListener('click', abrir);
+  intro.addEventListener('click', abrir);
+
+  // Mostrar secciones al hacer scroll
+  const secciones = document.querySelectorAll('section');
+  const obs = new IntersectionObserver(entradas=>{
+    entradas.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+  },{threshold:.15});
+  function mostrarSecciones(){ secciones.forEach(s=>obs.observe(s)); }
+
+  // Corazones y mariposas flotando
+  const figuras = ['💛','💗','🤍','🦋','✨','💕'];
+  function crearFlotante(){
+    const el = document.createElement('div');
+    el.className = 'flotante';
+    el.textContent = figuras[Math.floor(Math.random()*figuras.length)];
+    el.style.left = Math.random()*100 + 'vw';
+    el.style.fontSize = (14 + Math.random()*22) + 'px';
+    const dur = 7 + Math.random()*7;
+    el.style.animationDuration = dur + 's';
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(), dur*1000);
+  }
+  setInterval(crearFlotante, 600);
+</script>
+</body>
+</html>
